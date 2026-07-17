@@ -1,6 +1,6 @@
 {
     "name": "kanvigo/audit-chronicle",
-    "description": "Optional Chronicle bridge for Kanvigo's pluggable audit layer: a fail-closed compliance-ledger AuditSink backed by laravel-chronicle/core (hash-chained, tamper-evident, crypto-shreddable). Core Kanvigo never depends on it.",
+    "description": "Optional Chronicle bridge for Kanvigo's pluggable audit layer: a fail-closed compliance-ledger AuditSink backed by laravel-chronicle/core (hash-chained, tamper-evident, crypto-shreddable).",
     "keywords": ["kanvigo", "audit", "audit-log", "compliance", "chronicle", "ledger", "hash-chain", "worm", "sink"],
     "homepage": "https://github.com/Fanmade/kanvigo-audit-chronicle",
     "license": "MIT",
