@@ -1,0 +1,68 @@
+{
+    "name": "kanvigo/audit-chronicle",
+    "description": "Optional Chronicle bridge for Kanvigo's pluggable audit layer: a fail-closed compliance-ledger AuditSink backed by laravel-chronicle/core (hash-chained, tamper-evident, crypto-shreddable). Core Kanvigo never depends on it.",
+    "keywords": ["kanvigo", "audit", "audit-log", "compliance", "chronicle", "ledger", "hash-chain", "worm", "sink"],
+    "homepage": "https://github.com/Fanmade/kanvigo-audit-chronicle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben",
+            "email": "dev@reuterben.de"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "kanvigo/audit-contracts": "^0.1.0",
+        "laravel-chronicle/core": "1.13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0"
+    },
+    "suggest": {
+        "laravel-chronicle/anchor-s3": "S3 Object Lock (WORM) anchoring for checkpoints; the install command scaffolds it when present.",
+        "laravel-chronicle/kms-aws": "Keep the signing/encryption key material in AWS KMS instead of the local environment."
+    },
+    "autoload": {
+        "psr-4": {
+            "Kanvigo\\Audit\\Chronicle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kanvigo\\Audit\\Chronicle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kanvigo\\Audit\\Chronicle\\ChronicleAuditServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": ["pint"],
+        "test:lint": ["pint --test"],
+        "test:types": ["phpstan analyse"],
+        "test:unit": ["pest"],
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
